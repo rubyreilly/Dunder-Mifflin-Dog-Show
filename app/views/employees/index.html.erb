@@ -1,0 +1,13 @@
+<h3> Dunder Mifflin Employees </h3>
+
+
+<input type="text" class="form-control" id="usr">
+<% @employees.each do |e| %>
+  <img src="<%=e.img_url%>" class="img-rounded"/>
+  <%= link_to image_tag(e.img_url), e, class: "img-rounded" %>
+  <p>
+    <%= e.first_name %>
+    <%= e.last_name %>
+  </p>
+  <br/>
+<% end %>
