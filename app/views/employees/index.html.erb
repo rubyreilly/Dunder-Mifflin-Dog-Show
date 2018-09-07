@@ -1,13 +1,30 @@
-<h3> Dunder Mifflin Employees </h3>
+<h2> Dunder Mifflin Faculty </h2>
 
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <% @employees.each_with_index do |employee, index| %>
+      <li data-target='#MyCarousel'
+        data-slide-to="<%=index%>"
+        class=" <%= index == 0 ? "active" : "" %>"
+      />
+    <% end %>
+  </ol>
 
-<input type="text" class="form-control" id="usr">
-<% @employees.each do |e| %>
-  <img src="<%=e.img_url%>" class="img-rounded"/>
-  <%= link_to image_tag(e.img_url), e, class: "img-rounded" %>
-  <p>
-    <%= e.first_name %>
-    <%= e.last_name %>
-  </p>
-  <br/>
-<% end %>
+  <div class="carousel-inner" role="listbox">
+    <% @employees.each_with_index do |employee, index| %>
+      <div class="item <%= index == 0 ? "active" : "" %> ">
+        <%= link_to image_tag(employee.img_url), employee %>
+        <h4><%= "#{employee.first_name} #{employee.last_name}"  %></h4>
+      </div>
+    <% end %>
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

@@ -1,13 +1,13 @@
 
 
 
-
-
 <%= image_tag "dunder_mifflin_logo.svg", id: "logo" %>
-
-<h3>Employees</h3>
-<h3>Pets</h3>
-
-
-<%= link_to "Employees", employees_path %>
+<br/>
+<a href="/employees"><button type="button" class="btn btn-primary">Pets</button></a>
+<br/>
 <a href="/employees"><button type="button" class="btn btn-primary">Employees</button></a>
+
+
+<audio src="<%= audio_path 'theme_song.mp3'%>" type="audio/mpeg" controls autoplay=true>
+    Your browser does not support the audio element.
+</audio>
