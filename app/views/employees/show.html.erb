@@ -1,7 +1,47 @@
+SHOW PAGE
+
+<!-- <h1> <%= @employee.first_name %> <%= @employee.last_name %> </h1>
+
+<div style="margin-top:25px">
+  <%= image_tag @employee.img_url %><br/><br/>
+  <p> AKA: <%= @employee.nickname %> </p>
+  <p> Title: <%= @employee.title %> </p>
+  <p> Office Location: <%= @employee.office %> </p>
+</div> -->
 
 
-<img src=<%= @employee.img_url %> />
-<p> <%= @employee.first_name %> <%= @employee.last_name %> </p>
-<p> <%= @employee.alias %> </p>
-<p> <%= @employee.title %> </p>
-<p> <%= @employee.office %> </p>
+<h1>Faculty</h1>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+      <li data-target='#MyCarousel'
+        data-slide-to="<%= @employees.index(@employee) %>"
+        class="active"
+      />
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <% @employees.each_with_index do |employee, index| %>
+      <div class="item <%= index == 0 ? "active" : "" %> ">
+        <%= link_to image_tag(@employee.img_url), employee %>
+        <h2><%= "#{employee.first_name} #{employee.last_name}"  %></h2>
+      </div>
+    <% end %>
+  </div>
+
+  <a class="left carousel-control"
+    href="/employees/<%= @employees[@employees.index(@employee)-1].id %>"
+    role="button"
+    data-slide="prev"
+  >
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control"
+    href="/employees/<%= @employees[@employees.index(@employee)+1].id %>"
+    role="button"
+    data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

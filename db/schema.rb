@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20180411182815) do
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "alias"
+    t.string "nickname"
     t.string "title"
     t.string "office"
     t.string "img_url"

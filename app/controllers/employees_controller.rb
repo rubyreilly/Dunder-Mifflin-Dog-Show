@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
   end
 
   def show
+    @employees = Employee.all
     @employee = Employee.find(params[:id])
   end
 
@@ -24,6 +25,10 @@ class EmployeesController < ApplicationController
 
   def delete
     @employee = Employee.find(params[:id])
+  end
+
+  def slideshow
+    @employees = Employee.all
   end
 
 
