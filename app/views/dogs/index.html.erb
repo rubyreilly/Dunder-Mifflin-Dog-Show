@@ -1,0 +1,8 @@
+<h1>Our Office Dogs!</h1>
+<%= form_tag("/dogs", method: "get") do %>
+  <%= hidden_field_tag(:query) %>
+  <%= submit_tag("Sort by Num Owners") %>
+<% end %>
+<% @dogs.each do |dog| %>
+  <li><%= link_to dog.name, dog_path(dog) %></li>
+<% end %>
