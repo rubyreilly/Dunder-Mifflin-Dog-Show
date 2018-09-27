@@ -1,0 +1,7 @@
+<h1><%= @employee.full_name %></h1>
+<p>Alias: <%= @employee.alias %></p>
+<p>Title: <%= @employee.title %></p>
+<p>Office: <%= @employee.office %></p>
+<p>Pet: <%= @employee.dog.name %></p>
+<%= link_to "Edit Employee", edit_employee_path(@employee) %>
+<%= image_tag(@employee.img_url) %>
